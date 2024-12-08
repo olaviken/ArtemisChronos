@@ -1,0 +1,72 @@
+﻿<Window x:Class="Artemis_Chronos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Artemis_Chronos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Lag dagens bilde">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="BtnCreateImage" Grid.Column="1" Grid.Row="1" Margin="2" Width="100" Click="BtnCreateImage_Click">Lag dagens bilde</Button>
+                    <Button x:Name="BtnChangeAPI" Grid.Column="2" Grid.Row="1" Margin="2" Width="100" Click="BtnChangeAPI_Click" >Endre API</Button>
+                    <Button x:Name="BtnCopyText" Grid.Column="4" Grid.Row="1" Margin="2" Width="150" Click="BtnCopyTodaysTheme_Click">Kopier dagens tekst</Button>
+                    <Image x:Name="TodaysImage" Grid.Column="1" Grid.Row="2" Margin="2" Grid.RowSpan="2"  Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="TodaysTheme" Grid.Column="4" Grid.Row="2" Margin="2" Grid.RowSpan="2" Width="250" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto" ></TextBox>
+                    <TextBlock x:Name="Status" Grid.Column="1" Grid.Row="4" Text="Klar for dagens bilde"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tidligere bilder">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="GetPreviouslyImages" Grid.Row="1" Grid.Column="1" Margin="2" Content="Hent tidligere bilder" Click="GetPreviouslyImages_Click"/>
+                    <ListBox x:Name="PreviouslyImages" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding oldImages}" Width="200" Margin="2" SelectionChanged="PreviouslyImages_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Filepath}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button x:Name="CopyOldTheme" Grid.Row="1" Grid.Column="2" Margin="2" Content="Kopier tekst" Click="CopyOldTheme_Click"/>
+                    <TextBox x:Name="OldTheme" Grid.Column="2" Grid.Row="2" Margin="2" Grid.RowSpan="2" Width="200" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto" ></TextBox>
+                    <Image x:Name="OldImage" Grid.Column="3" Grid.Row="2" Margin="2" Grid.RowSpan="2"  Grid.ColumnSpan="3"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</Window>
