@@ -34,8 +34,8 @@ To produce the prompts in the software a seperate class was created. This class 
 
 ### Dependencies
 To handle different parts of the project, external libraries and framework was used: 
-1. Microsoft.Extension.Configuration.UserSecrets. This was used to configure user secrets configuration 
-2. Newtonsoft.Json was used to handle JSON serialization and deserialization. Storing and loading data from the JSON file acting as a storage.
+1. Microsoft.Extension.Configuration.UserSecrets. This was used to configure user secrets configuration (https://dotnet.microsoft.com/en-us/).
+2. Newtonsoft.Json was used to handle JSON serialization and deserialization. Storing and loading data from the JSON file acting as a storage (https://www.newtonsoft.com/json).
 
 ### Project classes
 Besides the MainWindow class in C# WPF software this class is divided into 4 other classes. Each with a different problem it solves. These classes are as follows: 
